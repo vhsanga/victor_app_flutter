@@ -44,7 +44,7 @@ class HomeScreen extends StatelessWidget {
               SizedBox(height: 30,),
               ElevatedButton(
                 onPressed: null,
-                child: const Text("Raised Button"),
+                child: const Text("Clic de Bienvenida"),
                 ),
               SizedBox(height: 30,)
              ],
