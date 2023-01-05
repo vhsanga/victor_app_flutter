@@ -18,7 +18,7 @@ class HomeScreen extends StatelessWidget {
           title: Text(listaMenu[index].nombre),
           leading: Icon(listaMenu[index].icono),
           onTap: () {
-            Navigator.pushNamed(context, listaMenu[index].route);
+            Navigator.of(context).push(AppRouter.createRouteEffect(listaMenu[index].screen) );
           },
         ), 
         separatorBuilder: (context, index) => const Divider(), 

@@ -8,9 +8,23 @@ class AvatarScreen extends StatelessWidget{
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Pantalla de Avatar Screen"),
+        title: Text("Mi perfil"),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 5),
+            child: CircleAvatar(
+              backgroundColor: Colors.indigo[900],
+              child: const Text("VS"),
+            ),
+          )
+        ],
       ),
-      body: Center(child: Text("Avatar Screen"),),
+      body: Center(
+        child: CircleAvatar(
+          maxRadius: 110,
+          backgroundImage: AssetImage('assets/FOTO.PNG'),
+        )
+      ),
     );
   }
 

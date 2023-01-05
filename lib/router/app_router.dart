@@ -12,6 +12,7 @@ class AppRouter{
     MenuOptions(route: 'card', icono: Icons.card_membership, nombre: 'Card Screen', screen: const CardScreen() ),
     MenuOptions(route: 'input', icono: Icons.text_format, nombre: 'Input Screen', screen: const InputScreen()),
     MenuOptions(route: 'animated', icono: Icons.play_arrow, nombre: 'Animated Screen', screen: const AnimatedScreen()),
+    MenuOptions(route: 'avatar', icono: Icons.person, nombre: 'Avatar Screen', screen: const AvatarScreen()),
     MenuOptions(route: 'listview', icono: Icons.list, nombre: 'Listview Screen', screen: const ListviewScreen()),
     
  ];
@@ -25,5 +26,23 @@ class AppRouter{
     }
     return routes; 
   }
+
+  static Route createRouteEffect(Widget destinationScreen) {
+  return PageRouteBuilder(
+    pageBuilder: (context, animation, secondaryAnimation) => destinationScreen,
+    transitionsBuilder: (context, animation, secondaryAnimation, child) {
+      const begin = Offset(0.0, 1.0);
+      const end = Offset.zero;
+      const curve = Curves.ease;
+
+      var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+
+      return SlideTransition(
+        position: animation.drive(tween),
+        child: child,
+      );
+    },
+  );
+}
 
 }
